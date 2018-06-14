@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity implements SayHelloContract.
     //UI properties
     private TextView mMessageView;
     private EditText mFirstNameView;
-    private EditText mLastNameView;
+    private EditText mLastNameView, editText3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,13 @@ public class MainActivity extends AppCompatActivity implements SayHelloContract.
         mFirstNameView = (EditText) findViewById(R.id.firstName);
         mLastNameView = (EditText) findViewById(R.id.lastName);
 
+
+
+        editText3 = (EditText) findViewById(R.id.editText3);
+
         findViewById(R.id.update).setOnClickListener(this);
         findViewById(R.id.showMessage).setOnClickListener(this);
+
     }
 
     @Override
@@ -59,6 +64,41 @@ public class MainActivity extends AppCompatActivity implements SayHelloContract.
                 break;
         }
     }
+
+    public void saveVal(View view)
+    {
+
+        setVal(editText3.getText().toString());
+
+    }
+
+
+    String val;
+    private void setVal(String val)
+    {
+        this.val = val;
+    }
+
+
+
+    private void getVal(TextView textView) {
+        if (val != null) {
+            textView.setText(val);
+        }
+    }
+
+
+
+    public void showVal(View view)
+    {
+        getVal(mMessageView);
+    }
+
+
+
+
+
+
 }
 
 

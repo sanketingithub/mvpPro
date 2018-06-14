@@ -69,12 +69,14 @@
         android:id="@+id/update3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="saveVal"
         android:text="update" />
 
     <Button
         android:id="@+id/update2"
+        android:onClick="showVal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="update" />
+        android:text="show Mess" />
 
 </LinearLayout>
