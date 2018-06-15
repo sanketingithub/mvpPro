@@ -25,6 +25,9 @@ public class SayHelloActivity extends AppCompatActivity implements SayHelloContr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        startActivity(new Intent(this,AddyActivity.class));
+
+
         initViews();
 
         // Creates presenter
