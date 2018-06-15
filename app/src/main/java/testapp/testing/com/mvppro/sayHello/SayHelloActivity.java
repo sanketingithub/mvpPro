@@ -1,5 +1,6 @@
-package testapp.testing.com.mvppro;
+package testapp.testing.com.mvppro.sayHello;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,7 +8,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements SayHelloContract.View, View.OnClickListener {
+import testapp.testing.com.mvppro.R;
+import testapp.testing.com.mvppro.addy.AddyActivity;
+
+public class SayHelloActivity extends AppCompatActivity implements SayHelloContract.View, View.OnClickListener {
 
     private SayHelloContract.Presenter mPresenter;
 
@@ -85,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements SayHelloContract.
         if (val != null) {
             textView.setText(val);
         }
+
+    startActivity(new Intent(this, AddyActivity.class));
     }
 
 

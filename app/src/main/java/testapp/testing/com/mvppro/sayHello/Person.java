@@ -1,4 +1,4 @@
-package testapp.testing.com.mvppro;
+package testapp.testing.com.mvppro.sayHello;
 
 public class Person {
     private String mFirstName;

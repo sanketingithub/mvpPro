@@ -1,4 +1,7 @@
-package testapp.testing.com.mvppro;
+package testapp.testing.com.mvppro.sayHello;
+
+import testapp.testing.com.mvppro.sayHello.Person;
+import testapp.testing.com.mvppro.sayHello.SayHelloContract;
 
 public class SayHelloPresenter implements SayHelloContract.Presenter{
 

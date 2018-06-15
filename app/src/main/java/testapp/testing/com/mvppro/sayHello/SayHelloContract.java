@@ -1,4 +1,4 @@
-package testapp.testing.com.mvppro;
+package testapp.testing.com.mvppro.sayHello;
 
 public interface SayHelloContract {
     /** Represents the View in MVP. */
