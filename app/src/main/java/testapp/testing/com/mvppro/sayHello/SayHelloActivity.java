@@ -20,7 +20,7 @@ public class SayHelloActivity extends AppCompatActivity implements SayHelloContr
     private EditText mFirstNameView;
     private  EditText mLastNameView, editText3;
 
-    strictfp float var = 00.2;
+   // strictfp float var = 00.2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
