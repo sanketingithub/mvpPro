@@ -18,7 +18,9 @@ public class SayHelloActivity extends AppCompatActivity implements SayHelloContr
     //UI properties
     private TextView mMessageView;
     private EditText mFirstNameView;
-    private EditText mLastNameView, editText3;
+    private  EditText mLastNameView, editText3;
+
+    strictfp float var = 00.2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
