@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import testapp.testing.com.mvppro.R;
 import testapp.testing.com.mvppro.addy.AddyActivity;
 
@@ -27,7 +29,7 @@ public class SayHelloActivity extends AppCompatActivity implements SayHelloContr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startActivity(new Intent(this,AddyActivity.class));
+      //  startActivity(new Intent(this,AddyActivity.class));
 
 
         initViews();
@@ -56,6 +58,13 @@ public class SayHelloActivity extends AppCompatActivity implements SayHelloContr
     @Override
     public void showError(String error) {
         Toast.makeText(getApplicationContext(), error, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showList(String stringList) {
+
+        Toast.makeText(this, stringList +"", Toast.LENGTH_SHORT).show();
+
     }
 
     /**
@@ -106,10 +115,10 @@ public class SayHelloActivity extends AppCompatActivity implements SayHelloContr
     }
 
 
-
-
-
-
+    public void shoLisssss(View view)
+    {
+        mPresenter.loadList();
+    }
 }
 
 
