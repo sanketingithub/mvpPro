@@ -23,6 +23,8 @@
         <activity android:name=".addy.AddyActivity" />
         <activity android:name=".locationTaker.LocationActivity" />
         <activity android:name=".RecyclerViewActivity"></activity>
+
+        <service android:name=".locationTaker.LocationService" />
     </application>
 
 </manifest>
