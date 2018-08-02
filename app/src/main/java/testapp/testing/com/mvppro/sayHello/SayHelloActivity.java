@@ -11,6 +11,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import testapp.testing.com.mvppro.R;
+import testapp.testing.com.mvppro.RecyclerViewActivity;
 import testapp.testing.com.mvppro.addy.AddyActivity;
 
 public class SayHelloActivity extends AppCompatActivity implements SayHelloContract.View, View.OnClickListener {
@@ -20,27 +21,30 @@ public class SayHelloActivity extends AppCompatActivity implements SayHelloContr
     //UI properties
     private TextView mMessageView;
     private EditText mFirstNameView;
-    private  EditText mLastNameView, editText3;
+    private EditText mLastNameView, editText3;
 
-   // strictfp float var = 00.2;
+    // strictfp float var = 00.2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-      //  startActivity(new Intent(this,AddyActivity.class));
+
+        //  startActivity(new Intent(this,AddyActivity.class));
+        startActivity(new Intent(this, RecyclerViewActivity.class));
 
 
         initViews();
 
         // Creates presenter
-        mPresenter = new SayHelloPresenter(this);}
+        mPresenter = new SayHelloPresenter(this);
+    }
+
     private void initViews() {
         mMessageView = (TextView) findViewById(R.id.message);
         mFirstNameView = (EditText) findViewById(R.id.firstName);
         mLastNameView = (EditText) findViewById(R.id.lastName);
-
 
 
         editText3 = (EditText) findViewById(R.id.editText3);
@@ -63,7 +67,7 @@ public class SayHelloActivity extends AppCompatActivity implements SayHelloContr
     @Override
     public void showList(String stringList) {
 
-        Toast.makeText(this, stringList +"", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, stringList + "", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -83,8 +87,7 @@ public class SayHelloActivity extends AppCompatActivity implements SayHelloContr
         }
     }
 
-    public void saveVal(View view)
-    {
+    public void saveVal(View view) {
 
         setVal(editText3.getText().toString());
 
@@ -92,11 +95,10 @@ public class SayHelloActivity extends AppCompatActivity implements SayHelloContr
 
 
     String val;
-    private void setVal(String val)
-    {
+
+    private void setVal(String val) {
         this.val = val;
     }
-
 
 
     private void getVal(TextView textView) {
@@ -104,19 +106,16 @@ public class SayHelloActivity extends AppCompatActivity implements SayHelloContr
             textView.setText(val);
         }
 
-    startActivity(new Intent(this, AddyActivity.class));
+        startActivity(new Intent(this, AddyActivity.class));
     }
 
 
-
-    public void showVal(View view)
-    {
+    public void showVal(View view) {
         getVal(mMessageView);
     }
 
 
-    public void shoLisssss(View view)
-    {
+    public void shoLisssss(View view) {
         mPresenter.loadList();
     }
 }
