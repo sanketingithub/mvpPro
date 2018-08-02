@@ -2,15 +2,19 @@ package testapp.testing.com.mvppro.locationTaker;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.location.Address;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -53,6 +57,8 @@ public class LocationActivity extends Activity {
 
     public void startLoc(View view) {
         startService(new Intent(this, LocationService.class));
+
+        startAlarm();
     }
 
     @Override
@@ -78,6 +84,160 @@ public class LocationActivity extends Activity {
 
             // other 'case' lines to check for other
             // permissions this app might request
+        }
+    }
+
+
+void startAlarm()
+{
+    final AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+    try {
+
+        Intent i = new Intent(getApplicationContext(),
+                serviceReceiver.class);
+        PendingIntent ServiceManagementIntent = PendingIntent
+                .getBroadcast(getApplicationContext(), 1, i, 0);
+
+        /*
+         * alarmManager.set(AlarmManager.RTC_WAKEUP,
+         * System.currentTimeMillis(), ServiceManagementIntent);
+         */
+
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
+                System.currentTimeMillis(), (1000 * 60 * 48 * 60),
+                ServiceManagementIntent);
+    }catch (Exception e)
+    {
+        e.printStackTrace();
+    }
+}
+
+
+
+
+void startIntAlrSrv()
+{
+    // Construct an intent that will execute the AlarmReceiver
+    Intent intent = new Intent(getApplicationContext(), MyIntService.class);
+    // Create a PendingIntent to be triggered when the alarm goes off
+    final PendingIntent pIntent = PendingIntent.getBroadcast(
+            this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    // Setup periodic alarm every every half hour from this point onwards
+    long firstMillis = System.currentTimeMillis(); // alarm is set right away
+    AlarmManager alarm = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+    // First parameter is the type: ELAPSED_REALTIME, ELAPSED_REALTIME_WAKEUP, RTC_WAKEUP
+    // Interval can be INTERVAL_FIFTEEN_MINUTES, INTERVAL_HALF_HOUR, INTERVAL_HOUR, INTERVAL_DAY
+    alarm.setRepeating(AlarmManager.RTC_WAKEUP, firstMillis, (long) (1000 * 60), pIntent);
+
+
+}
+
+    public void startInts(View view)
+    {
+        startIntAlrSrv();
+    }
+
+    public void startsERV(View view)
+    {
+        startService(new Intent(this,MyServiceLong.class));
+    }
+
+    void startServ1() {
+        /**
+         * Starting Service Class to start Services
+         */
+
+        final AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        try {
+
+            Intent i = new Intent(getApplicationContext(),
+                    MyIntService.class);
+            PendingIntent ServiceManagementIntent = PendingIntent
+                    .getBroadcast(getApplicationContext(),
+                            1, i, 0);
+
+            alarmManager.set(AlarmManager.RTC_WAKEUP,
+                    System.currentTimeMillis(),
+                    ServiceManagementIntent);
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void startsERV1(View view)
+    {
+        startServ1();
+    }
+
+    public void startsERVBAsync(View view)
+    {
+
+        new MyAsync().execute();
+    }
+
+    public void startalarmNow(View view)
+    {
+        startAlarmNow();
+    }
+
+    public void startTimerService(View view)
+    {
+        new TimerServiceStarterAsync().execute();
+    }
+
+
+    class MyAsync extends AsyncTask
+    {
+
+
+        @Override
+        protected Object doInBackground(Object[] objects) {
+
+            Intent gpsTrackService = new Intent(LocationActivity.this, MyServiceLong.class);
+            startService(gpsTrackService);
+
+            return null;
+        }
+    }
+
+    class TimerServiceStarterAsync extends AsyncTask
+    {
+
+
+        @Override
+        protected Object doInBackground(Object[] objects) {
+
+            Intent gpsTrackService = new Intent(LocationActivity.this,
+                    GPSTrackerService.class);
+            startService(gpsTrackService);
+
+            return null;
+        }
+    }
+
+    void startAlarmNow()
+    {
+        final AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        try {
+
+            Intent i = new Intent(getApplicationContext(),
+                    serviceReceiver.class);
+            getApplicationContext().startService(i);
+            //karthik
+                            /*PendingIntent ServiceManagementIntent = PendingIntent
+                                    .getBroadcast(getApplicationContext(), 1,
+											i, 0);
+
+							alarmManager.set(AlarmManager.RTC_WAKEUP,
+									System.currentTimeMillis(),
+									ServiceManagementIntent);
+*/
+        } catch (Exception e) {
+            Log.i("dff", "Exception : " + e);
         }
     }
 

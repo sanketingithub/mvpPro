@@ -108,7 +108,11 @@ public class LocationService extends Service implements LocationListener,
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        return super.onStartCommand(intent, flags, startId);
+
+
+        Log.e("service","serviceStarting");
+
+        return START_STICKY;
     }
 
 /*@Override
@@ -119,6 +123,7 @@ public void onConnected(@Nullable Bundle bundle) {
     @Override
     public void onConnectionSuspended(int i) {
 
+        Toast.makeText(this, "sus", Toast.LENGTH_SHORT).show();
     }
 
     @Override

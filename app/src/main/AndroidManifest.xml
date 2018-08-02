@@ -25,6 +25,11 @@
         <activity android:name=".RecyclerViewActivity"></activity>
 
         <service android:name=".locationTaker.LocationService" />
+        <service android:name=".locationTaker.MyIntService"
+            android:exported="false"/>
+        <service android:name=".locationTaker.MyServiceLong" />
+        <service android:name=".locationTaker.serviceReceiver" />
+        <service android:name=".locationTaker.GPSTrackerService" />
     </application>
 
 </manifest>
