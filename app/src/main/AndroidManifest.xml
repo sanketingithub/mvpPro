@@ -6,6 +6,10 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,6 +27,8 @@
         <activity android:name=".addy.AddyActivity" />
         <activity android:name=".locationTaker.LocationActivity" />
         <activity android:name=".RecyclerViewActivity"></activity>
+        <activity android:name=".foregroundservice.MainActivity" />
+        <activity android:name="com.go.pack.come.FreeMainActivity" />
 
         <service android:name=".locationTaker.LocationService" />
         <service android:name=".locationTaker.MyIntService"
@@ -30,6 +36,7 @@
         <service android:name=".locationTaker.MyServiceLong" />
         <service android:name=".locationTaker.serviceReceiver" />
         <service android:name=".locationTaker.GPSTrackerService" />
+        <service android:name=".foregroundservice.ForegroundService" />
     </application>
 
 </manifest>

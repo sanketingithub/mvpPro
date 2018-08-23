@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.go.pack.come">
+
+    <application>
+        <activity android:name="com.go.pack.come.FreeMainActivity"></activity>
+    </application>
+</manifest>

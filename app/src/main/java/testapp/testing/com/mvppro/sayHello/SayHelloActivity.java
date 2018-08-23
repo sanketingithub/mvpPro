@@ -13,6 +13,7 @@ import java.util.List;
 import testapp.testing.com.mvppro.R;
 import testapp.testing.com.mvppro.RecyclerViewActivity;
 import testapp.testing.com.mvppro.addy.AddyActivity;
+import testapp.testing.com.mvppro.foregroundservice.MainActivity;
 import testapp.testing.com.mvppro.locationTaker.LocationActivity;
 
 public class SayHelloActivity extends AppCompatActivity implements SayHelloContract.View, View.OnClickListener {
@@ -34,7 +35,8 @@ public class SayHelloActivity extends AppCompatActivity implements SayHelloContr
 
         //  startActivity(new Intent(this,AddyActivity.class));
        // startActivity(new Intent(this, RecyclerViewActivity.class));
-        startActivity(new Intent(this, LocationActivity.class));
+      //  startActivity(new Intent(this, LocationActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
 
 
         initViews();

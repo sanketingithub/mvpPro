@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -186,6 +188,13 @@ void startIntAlrSrv()
     public void startTimerService(View view)
     {
         new TimerServiceStarterAsync().execute();
+    }
+
+    public void copyToClip(View view)
+    {
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("label", "hey there");
+        clipboard.setPrimaryClip(clip);
     }
 
 

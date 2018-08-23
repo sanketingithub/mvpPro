@@ -25,7 +25,7 @@ public class ForegroundService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (intent.getAction().equals(SyncStateContract.Constants.ACTION.STARTFOREGROUND_ACTION)) {
+       /* if (intent.getAction().equals(SyncStateContract.Constants.ACTION.STARTFOREGROUND_ACTION)) {
             Log.i(LOG_TAG, "Received Start Foreground Intent ");
             Intent notificationIntent = new Intent(this, MainActivity.class);
             notificationIntent.setAction(SyncStateContract.Constants.ACTION.MAIN_ACTION);
@@ -80,7 +80,7 @@ public class ForegroundService extends Service {
             Log.i(LOG_TAG, "Received Stop Foreground Intent");
             stopForeground(true);
             stopSelf();
-        }
+        }*/
         return START_STICKY;
     }
 

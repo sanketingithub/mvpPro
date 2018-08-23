@@ -32,6 +32,8 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.Toast;
 
+import testapp.testing.com.mvppro.R;
+
 public class ForegroundService extends Service {
     private static final String LOG_TAG = "ForegroundService";
 
@@ -43,7 +45,7 @@ public class ForegroundService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        startRep();
+        /*startRep();
         if (intent.getAction().equals(Constants.ACTION.STARTFOREGROUND_ACTION)) {
             Log.i(LOG_TAG, "Received Start Foreground Intent ");
             Intent notificationIntent = new Intent(this, MainActivity.class);
@@ -99,7 +101,7 @@ public class ForegroundService extends Service {
             Log.i(LOG_TAG, "Received Stop Foreground Intent");
             stopForeground(true);
             stopSelf();
-        }
+        }*/
         return START_STICKY;
     }
 

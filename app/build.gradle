@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "testapp.testing.com.mvppro"
-        minSdkVersion 22
+        minSdkVersion 17
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -14,6 +14,28 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "productaType", "serverType", "holathree"
+    productFlavors {
+        Freedsds {
+            dimension "productaType"
+        }
+        Paid {
+            dimension "productaType"
+
+        }
+        Test {
+            dimension "serverType"
+
+        }
+        Prod {
+            dimension "serverType"
+
+        }
+
+        Hola {
+            dimension "holathree"
         }
     }
 }
