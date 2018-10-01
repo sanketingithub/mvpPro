@@ -37,9 +37,8 @@ import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.go.pack.come.ConstantsFree;
-
 import testapp.testing.com.mvppro.R;
+
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
     public static final int REQUEST_READ_PHONE_STATE = 1;
@@ -104,20 +103,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     }
 
 
-    private static void validateMeths()
-    {
-
-        if (ConstantsFree.myType == ConstantsFree.MyType.COME)
-        {
-         //   T
-        }
-
-    }
 
 
 
 
 
+/*
 
     contentView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
         @Override
@@ -141,5 +132,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             }
         }
     });
+*/
 
 }
